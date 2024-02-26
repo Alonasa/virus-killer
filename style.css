@@ -1,23 +1,24 @@
 table {
+    width: 100%;
     margin: 0 auto;
     border-collapse: collapse;
 }
 
 img {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
 }
 
 td {
-    height: 155px;
+    height: 15vh;
     width: 155px;
     border: 3px solid black;
     box-sizing: border-box;
 }
 
 .wrapper {
-    width: 800px;
+    width: 90%;
     margin: 0 auto;
     text-align: center;
 }

@@ -23,7 +23,6 @@ doctor.src = "img/doctor1.png";
 
 function countRecord() {
   newRecord += 1;
-  console.log(`You got: ${newRecord}`)
 }
 
 function randomInteger(min, max) {
@@ -99,6 +98,51 @@ document.onkeypress = function (event) {
   
   moveDoctor();
 }
+
+
+function handleTouchStart(event) {
+  const touch = event.touches[0];
+  this.touchStartX = touch.clientX;
+  this.touchStartY = touch.clientY;
+}
+
+function handleTouchMove(event) {
+  event.preventDefault();
+  const touch = event.touches[0];
+  const touchEndX = touch.clientX;
+  const touchEndY = touch.clientY;
+  
+  const deltaX = touchEndX - this.touchStartX;
+  const deltaY = touchEndY - this.touchStartY;
+  
+  const threshold = 50; // Adjust this value to control sensitivity
+  
+  if (Math.abs(deltaX) >= threshold || Math.abs(deltaY) >= threshold) {
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      // Horizontal movement
+      if (deltaX > 0 && doctorX < rows.length - 1) {
+        doctorX++;
+      } else if (deltaX < 0 && doctorX > 0) {
+        doctorX--;
+      }
+    } else {
+      // Vertical movement
+      if (deltaY > 0 && doctorY < rows.length - 1) {
+        doctorY++;
+      } else if (deltaY < 0 && doctorY > 0) {
+        doctorY--;
+      }
+    }
+    
+    this.touchStartX = touchEndX;
+    this.touchStartY = touchEndY;
+    
+    moveDoctor();
+  }
+}
+
+document.addEventListener("touchstart", handleTouchStart, false);
+document.addEventListener("touchmove", handleTouchMove, false);
 
 moveDoctor();
 moveVirus();
