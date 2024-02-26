@@ -1,11 +1,14 @@
-let size = 10;
-let score = 0;
+const rows = document.getElementsByTagName("tr");
+const cells = document.getElementsByTagName("td");
+const bestTime = document.getElementsByClassName("counter-time");
 
+const size = 10;
+let score = 0;
 let lastRecord = 1000;
 let newRecord = 0;
 
-const rows = document.getElementsByTagName("tr");
-const cells = document.getElementsByTagName("td");
+bestTime[0].innerText = lastRecord;
+
 
 let virusX = randomInteger(1, rows.length - 1);
 let virusY = randomInteger(1, rows.length - 1);
@@ -53,6 +56,7 @@ function moveDoctor() {
       let amtTime = newRecord > 60 ? newRecord / 60 : newRecord
       if (newRecord < lastRecord){
         lastRecord = newRecord;
+        bestTime[0].innerText = lastRecord;
         alert(`You hit ${size} viruses about ${amtTime.toFixed(0)} seconds`)
       }
       newRecord = 0;
