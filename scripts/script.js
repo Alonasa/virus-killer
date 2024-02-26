@@ -115,7 +115,7 @@ function handleTouchMove(event) {
   const deltaX = touchEndX - this.touchStartX;
   const deltaY = touchEndY - this.touchStartY;
   
-  const threshold = 50; // Adjust this value to control sensitivity
+  const threshold = 20; // Adjust this value to control sensitivity
   
   if (Math.abs(deltaX) >= threshold || Math.abs(deltaY) >= threshold) {
     if (Math.abs(deltaX) > Math.abs(deltaY)) {
