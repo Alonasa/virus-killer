@@ -142,7 +142,7 @@ function handleTouchMove(event) {
 }
 
 document.addEventListener("touchstart", handleTouchStart, false);
-document.addEventListener("touchmove", handleTouchMove, false);
+document.addEventListener("touchmove", handleTouchMove, {passive: false});
 
 moveDoctor();
 moveVirus();
