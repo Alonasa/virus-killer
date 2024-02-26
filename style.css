@@ -11,7 +11,7 @@ img {
 
 td {
     height: 15vh;
-    width: 155px;
+    width: 1vw;
     border: 3px solid black;
     box-sizing: border-box;
 }
@@ -24,4 +24,18 @@ td {
 
 .counter {
     font-weight: bold;
+}
+
+.rules-desktop {
+    display: none;
+}
+
+@media (min-width: 767px) {
+    .rules-mob {
+        display: none;
+    }
+
+    .rules-desktop {
+        display: block;
+    }
 }
